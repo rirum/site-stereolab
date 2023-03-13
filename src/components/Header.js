@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import {AiOutlineInstagram, AiOutlineMail, AiOutlineMenu} from "react-icons/ai";
 import { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 
 export default function Header(){
     
@@ -8,13 +9,15 @@ export default function Header(){
       
         const toggleMenu = () => {
           setIsCollapsed(!isCollapsed);
-          console.log("clicou")
+          
         };
     
     return(
 
         <HeaderContainer>
-        <LeftContainer><h1>Stereolab</h1></LeftContainer>
+            <LeftContainer>
+              <NavbarLink to="/home"><h1>Stereolab</h1></NavbarLink>  
+            </LeftContainer>
         <WrapperMenu>
         <AiOutlineMenu color="white" size="32"  onClick={toggleMenu} />
         </WrapperMenu>
@@ -22,20 +25,20 @@ export default function Header(){
         <CenterContainer>
             <Left isCollapsed={isCollapsed}>
                 
-                <li>Baffles</li>
-                <li>Cabos</li>
-                <li>Falante</li>
-                <li>Retrô</li>
-                <li>Tweeter</li> 
-                <li>Revendas</li>
-                <li>Descontinuado</li>
-                <li>Compre aqui</li>
+                <NavbarLink to=""><li>Baffles</li></NavbarLink>
+                <NavbarLink to=""><li>Cabos</li></NavbarLink>
+                <NavbarLink to=""><li>Falante</li></NavbarLink>
+                <NavbarLink to=""><li>Retrô</li></NavbarLink>
+                <NavbarLink to=""><li>Tweeter</li></NavbarLink> 
+                <NavbarLink to=""><li>Revendas</li></NavbarLink>
+                <NavbarLink to=""><li>Descontinuado</li></NavbarLink>
+                <NavbarLink to=""><li>Compre aqui</li></NavbarLink>
                 
             </Left>
             <Right>
                 
-                <AiOutlineInstagram color="white" size="24"/>
-                <AiOutlineMail color="white" size="24"/>
+                <NavbarLink to ="https://www.instagram.com/stereolab_oficial/"><AiOutlineInstagram color="white" size="24"/></NavbarLink>
+                <MailButton onClick={() => window.location = 'mailto:contato@deaaz.net'}><AiOutlineMail color="white" size="24" /></MailButton>
             
             </Right>
        
@@ -60,9 +63,13 @@ display: flex;
 align-items: center;
 font-family: 'Rubik', sans-serif;
 font-size: 16px;
-justify-content: space-between;
+justify-content: space-evenly;
 position: relative;
-
+@media screen and (max-width: 768px) {
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+   
+   
+}
 
 `
 const WrapperMenu = styled.button`
@@ -82,10 +89,11 @@ display: none;
 }
 `
 const LeftContainer = styled.div`
-/* width: 150px; */
+/* width: 200px; */
 text-decoration: none;
 padding-left: 15px;
 h1 {
+    font-size: 25px;
     font-weight: 700;
    color: white;
 }
@@ -98,17 +106,13 @@ h1 {
 const CenterContainer = styled.div`
 display: flex;
 
-@media screen and (max-width: 768px) {   
-    
-}
-
 `
 
 const Left = styled.ul`
-width: 1200px;
+width: 800px;
 display: flex;
 align-items: center;
-justify-content: space-evenly;
+justify-content: space-around;
 padding: 0;
 
 li {
@@ -118,6 +122,9 @@ li {
     text-decoration: none;
   display: block;
   width: 100%;
+  :hover {
+    color: #EF8354;
+}
 }
 
 @media screen and (max-width: 768px){
@@ -153,7 +160,7 @@ li a {
 `
 
 const Right = styled.div`
-width: 300px;
+width: 100px;
 display: flex;
 justify-content: space-evenly;
 align-items: center;
@@ -164,4 +171,15 @@ p{
 @media screen and (max-width: 768px){
 display: none;
 }
+`
+
+const NavbarLink = styled(Link)`
+text-decoration: none;
+
+`
+const MailButton = styled.button`
+background-color: transparent;
+border: 1px solid #4F5D75;
+cursor: pointer;
+
 `
