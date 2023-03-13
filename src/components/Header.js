@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import {AiOutlineInstagram, AiOutlineMail, AiOutlineMenu} from "react-icons/ai";
+import { FaTiktok } from "react-icons/fa";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
@@ -38,8 +39,9 @@ export default function Header(){
             <Right>
                 
                 <NavbarLink to ="https://www.instagram.com/stereolab_oficial/"><AiOutlineInstagram color="white" size="24"/></NavbarLink>
+                <NavbarLink to="https://www.tiktok.com/@stereolab_oficial?_t=8acESaVCw8U&_r=1"><FaTiktok color="white" size="18"/></NavbarLink>
                 <MailButton onClick={() => window.location = 'mailto:contato@deaaz.net'}><AiOutlineMail color="white" size="24" /></MailButton>
-            
+                
             </Right>
        
         </CenterContainer>
@@ -160,7 +162,7 @@ li a {
 `
 
 const Right = styled.div`
-width: 100px;
+width: 150px;
 display: flex;
 justify-content: space-evenly;
 align-items: center;
