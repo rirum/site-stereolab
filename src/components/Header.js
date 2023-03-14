@@ -17,7 +17,7 @@ export default function Header(){
 
         <HeaderContainer>
             <LeftContainer>
-              <NavbarLink to="/home"><h1>Stereolab</h1></NavbarLink>  
+              <NavbarLink to="/"><h1>Stereolab</h1></NavbarLink>  
             </LeftContainer>
         <WrapperMenu>
         <AiOutlineMenu color="white" size="32"  onClick={toggleMenu} />
@@ -26,12 +26,12 @@ export default function Header(){
         <CenterContainer>
             <Left isCollapsed={isCollapsed}>
                 
-                <NavbarLink to=""><li>Baffles</li></NavbarLink>
-                <NavbarLink to=""><li>Cabos</li></NavbarLink>
-                <NavbarLink to=""><li>Falante</li></NavbarLink>
+                <NavbarLink to="/baffles"><li>Baffles</li></NavbarLink>
+                <NavbarLink to="/cabos"><li>Cabos</li></NavbarLink>
+                <NavbarLink to="/falante"><li>Falante</li></NavbarLink>
+                <NavbarLink to=""><li>Residencial</li></NavbarLink>
                 <NavbarLink to=""><li>Retrô</li></NavbarLink>
                 <NavbarLink to=""><li>Tweeter</li></NavbarLink> 
-                <NavbarLink to=""><li>Revendas</li></NavbarLink>
                 <NavbarLink to=""><li>Descontinuado</li></NavbarLink>
                 <NavbarLink to=""><li>Compre aqui</li></NavbarLink>
                 
